@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "GzBLPhNX2Bx0mE5ZfMLLDk8ph6nPHYumsZCakSECT4WVixy5wIa0ghO8F050GVgGK2rYsNTGMpux4PO86UNwLA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\patri\\Desktop\\NEWSCLIP\\VolkswagenWebApp\\Web_App\\Web_App.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\patri\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}

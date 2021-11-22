@@ -1,0 +1,65 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Modify Data";
+}
+
+<script>
+        function submitData(){
+            var name = document.getElementById('cname').value
+            var model = document.getElementById('cmodel').value
+            var price = document.getElementById('cPrice').value
+            var count = document.getElementById('cCount').value
+
+
+           let text= '{ "name": '+name +', "model":'+ model+ ', "price":' +price +', "count":'+ count + ' }';
+            const data = JSON.parse(text-
+            $.post( "ajax/test.html", function( data ) {
+                 $( ".result" ).html( data );
+        });
+        }
+</script>
+
+<body>
+    <h1>@ViewData["Title"]</h1>
+    <div class="column"><h2>Create</h2>
+        <form>
+             <label for="cname">Vehicle Name:</label><br>
+             <input type="text" id="cname" name="name"><br>
+             <label for="cmodel">Vehicle Model:</label><br>
+             <input type="text" id="cmodel" name="model"><br>
+             <label for="cPrice">Price:</label><br>
+             <input type="text" id="cPrice" name="price"><br>
+              <label for="cCount">Count:</label><br>
+             <input type="text" id="cCount" name="count"><br>
+              <input type="button" onclick="submitData()"  value="Submit">
+        </form>
+    
+    </div>
+    <div class="column"><h2>Modify</h2>
+        
+    
+    
+    </div>
+    <div class="column"><h2>Delete</h2>
+        
+    
+    
+    </div>
+</body>
+
+
+
+<style>
+    .column {
+  float: left;
+  width: 33.33%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+</style>

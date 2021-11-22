@@ -1,0 +1,89 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<script> 
+    function loadData() {
+        let headers = new Headers();
+         headers.append('Access-Control-Allow-Origin', "*");
+         headers.append('Access-Control-Allow-Credentials', 'true');
+        var result = null;
+        $.ajax({
+        url: "https://localhost:44308/api/Volkswagen/api/Volkswagen",
+        headers: {  'Access-Control-Allow-Origin': 'https://localhost:44336' },
+        type: 'GET',
+        data: "{}",
+        dataType: 'json', 
+         headers: headers,
+        success: function(res) {
+           var result= res;
+          res.forEach(element => console.log(element));
+           res.forEach(element => addLi(element.name,element.model,element.count));
+           
+
+        }, error: function(error){
+           console.log(error);
+              
+           
+        }
+        });
+
+    }
+
+    function addLi(name, model, count){
+           var ul = document.getElementById("dynamic-list");
+           var li = document.createElement("li");
+           var ulinner= document.createElement("ul");
+           var li2 = document.createElement("li");
+           var li3 = document.createElement("li");
+           li.innerHTML=name;
+           li.className="litem"
+           li2.innerHTML=model;
+           li2.className="litem"
+           li3.innerHTML=count;
+           li3.className="litem"
+           ulinner.appendChild(li);
+           ulinner.appendChild(li2);
+           ulinner.appendChild(li3);
+           ulinner.className='InnerList';
+           ul.appendChild(ulinner);
+            
+    }
+
+ </script> 
+
+<style>
+    .litem{
+      float: left;
+      padding-right: 10%;
+      width: 33%;
+      list-style: outside none none;
+    }
+
+    .InnerList{
+       
+        text-align: left;
+        list-style-type: none;
+        display: inline;
+        
+    }
+
+    #dynamic-list{
+        list-style-type: none;
+        display: grid;
+    }
+
+    #headingMain{
+        text-align: left;
+    }
+</style>
+
+<body onload="loadData()">
+    <div class="text-center">
+       <h1 id="headingMain" class="display-4">Current Stock</h1>
+       <ul id="dynamic-list">
+               
+       </ul>
+    </div>
+</body>
